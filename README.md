@@ -1,4 +1,4 @@
-# RL_PROJECT-CONNECT_4_GAME
+
 # Connect-4 Reinforcement Learning System Using Proximal Policy Optimization (PPO)
 
 ## 1. Overview
@@ -94,12 +94,9 @@ pip install --upgrade pip
 pip install gymnasium torch torchvision imageio moviepy pillow matplotlib tqdm
 
 ## 5.File Structure
-├── connect4_ppo.py             # Main training, evaluation, and video generation script
-├── reward_model_final.pth      # Saved reward model (produced after training)
-├── connect4_demo.mp4           # Auto-generated gameplay demo video
-└── README.md                   # Project documentation
-
-
+├── connect4_ppo.py             
+├── connect4_demo.mp4         
+└── README.md               
 
 This structure is intentionally minimalistic to ensure clarity and ease of reproducibility.
 
@@ -221,25 +218,15 @@ The training process is organized into a cyclical pipeline:
 2. **Reward Model Training**  
    The model is trained on sampled transitions using supervised regression.
 
-3. **GAE Advantage Computation**  
-   Advantages are computed using:
-δt = rt + γV(s_{t+1}) − V(s_t)
-
-    and generalized using:
-A_t = Σ (γλ)^k δ_{t+k}
-
-
-
-4. **PPO Update**  
+3. **PPO Update**  
 The agent parameters are updated using clipped policy gradients and value losses.
 
-5. **Buffer Clearing and Repetition**  
+4. **Buffer Clearing and Repetition**  
 Ensures clean rollout segments for subsequent iterations.
 
 Training continues until the total steps reach the defined threshold (default: 200,000).
 
 The trained reward model is saved as:reward_model_final.pth
-
 
 ---
 
@@ -288,11 +275,11 @@ This video is ideal for presentations, demonstrations, and academic reviews.
 ---
 
 
-12. User Manual
+## 12. User Manual
 
 This section describes how to operate, train, evaluate, and record gameplay using the Connect-4 PPO system implemented in this project. All information corresponds exactly to the functionality inside the provided Connect4Env, ActorCritic, RewardModel, RolloutBuffer, PPOTrainer, evaluate(), and record_play() implementations.
 
-12.1 Running the Complete Pipeline
+### 12.1 Running the Complete Pipeline
 
 The entire training–evaluation–recording process is executed with a single command:
 
@@ -330,7 +317,7 @@ Execution automatically performs the following steps:
 
 All components run sequentially without requiring user intervention.
 
-12.2 Output Files Generated
+### 12.2 Output Files Generated
 
 After the pipeline finishes, the following output files are produced:
 
@@ -343,7 +330,7 @@ After the pipeline finishes, the following output files are produced:
 3. Console Logs
    The script prints PPO updates, reward model loss, evaluation results, and recording completion messages.
 
-12.3 Modifying Environment Settings
+### 12.3 Modifying Environment Settings
 
 Environment configuration options:
 
@@ -353,13 +340,13 @@ env = Connect4Env(
     render_cell_size=64
 )
 
-12.4 Modifying PPO Hyperparameters
+### 12.4 Modifying PPO Hyperparameters
 
 Key hyperparameters are defined inside:
 
 update(self, gamma=0.99, lam=0.95, clip=0.2)
 
-12.5 Video Recording
+### 12.5 Video Recording
 
 Recording is controlled using:
 
@@ -367,11 +354,13 @@ record_play(model, env, episodes=12, eps=0.25)
 
 It produces annotated graphical+matrix frames and compiles them into MP4 output.
 
-12.6 Extending the Project
+### 12.6 Extending the Project
 
 Extensions include new opponents, human input mode, additional rendering, saving actor/critic weights, and logging training curves.
 
-13. Results Summary
+---
+
+## 13. Results Summary
 
 The PPO agent demonstrates:
 - Increased win rates against random opponents
@@ -380,37 +369,11 @@ The PPO agent demonstrates:
 - Learned center-column preference
 - Improved reward optimization due to PPO+GAE
 
-14. Limitations
+---
 
-The project intentionally includes only implemented components:
-- No MCTS/Minimax opponent
-- No human GUI
-- No self-play system
-- Fixed 6x7 board
-- Only reward model is saved (not policy weights)
 
-15. Future Work
 
-Potential extensions:
-- GUI for human play
-- Stronger search-based opponents
-- Self-play reinforcement learning
-- Logging metrics over time
-- Actor–critic weight saving
-- Highlighting last move during render
 
-16. Citation
-
-@misc{connect4ppo2025,
-  title={Connect-4 Reinforcement Learning System using Proximal Policy Optimization},
-  author={Pakhi Singhal},
-  year={2025},
-  note={Custom Connect-4 environment, PPO training framework, reward model, combined renderer, and gameplay recorder}
-}
-
-17. License
-
-This project is for educational and research purposes. Users may modify and extend it with attribution.
 
 
 
