@@ -48,36 +48,37 @@ The system is composed of the following modules:
 7. **Gameplay Recorder**  
    Produces narrated MP4 gameplay videos with board visualization, step information, and winner identification.
 
-        +-----------------------+
-     |   Connect4Env         |
-     |  (Game + Rendering)   |
-     +-----------+-----------+
-                 |
-                 v
-     +-----------------------+
-     |    PPO Actor-Critic   |
-     +-----------+-----------+
-                 |
-                 v
-     +-----------------------+
-     |     Reward Model      |
-     +-----------+-----------+
-                 |
-                 v
-     +-----------------------+
-     |     Rollout Buffer    |
-     |         (GAE)         |
-     +-----------+-----------+
-                 |
-                 v
-     +-----------------------+
-     |     PPO Training      |
-     +-----------+-----------+
-                 |
-                 v
-     +-----------------------+
-     |   Evaluation & Video   |
-     +------------------------+
++-----------------------+
+|      Connect4Env      |
+|  (Game + Rendering)   |
++-----------+-----------+
+            |
+            v
++-----------------------+
+|   PPO Actor-Critic    |
++-----------+-----------+
+            |
+            v
++-----------------------+
+|     Reward Model      |
++-----------+-----------+
+            |
+            v
++-----------------------+
+|     Rollout Buffer    |
+|         (GAE)         |
++-----------+-----------+
+            |
+            v
++-----------------------+
+|     PPO Training      |
++-----------+-----------+
+            |
+            v
++-----------------------+
+|  Evaluation & Video   |
++-----------------------+
+
 
 
 ---
