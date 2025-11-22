@@ -48,7 +48,7 @@ The system is composed of the following modules:
 7. **Gameplay Recorder**  
    Produces narrated MP4 gameplay videos with board visualization, step information, and winner identification.
 
-<h2>System Architecture</h2>
+<h2>The following diagram represents the full pipeline used in our Connect-4 PPO Reinforcement Learning system:</h2>
 
 <p align="center">
   <img src="Connect4_PPO_System_Architecture_Colored.png" width="450">
