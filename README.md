@@ -50,36 +50,38 @@ The system is composed of the following modules:
 
 +-----------------------+
 |      Connect4Env      |
-|  (Game + Rendering)   |
+|   (Game + Rendering)  |
 +-----------+-----------+
             |
             v
 +-----------------------+
 |   PPO Actor-Critic    |
+|  (Policy + Value Net) |
 +-----------+-----------+
             |
             v
 +-----------------------+
 |     Reward Model      |
+| (Learned Reward Func) |
 +-----------+-----------+
             |
             v
 +-----------------------+
 |     Rollout Buffer    |
-|         (GAE)         |
+|     (GAE Advantage)   |
 +-----------+-----------+
             |
             v
 +-----------------------+
 |     PPO Training      |
+|   (Optimization Loop) |
 +-----------+-----------+
             |
             v
 +-----------------------+
-|  Evaluation & Video   |
+| Evaluation & Video    |
+|   (MP4 Generation)    |
 +-----------------------+
-
-
 
 ---
 
