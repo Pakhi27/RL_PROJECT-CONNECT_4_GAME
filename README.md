@@ -48,40 +48,11 @@ The system is composed of the following modules:
 7. **Gameplay Recorder**  
    Produces narrated MP4 gameplay videos with board visualization, step information, and winner identification.
 
-+-----------------------+
-|      Connect4Env      |
-|   (Game + Rendering)  |
-+-----------+-----------+
-            |
-            v
-+-----------------------+
-|   PPO Actor-Critic    |
-|  (Policy + Value Net) |
-+-----------+-----------+
-            |
-            v
-+-----------------------+
-|     Reward Model      |
-| (Learned Reward Func) |
-+-----------+-----------+
-            |
-            v
-+-----------------------+
-|     Rollout Buffer    |
-|     (GAE Advantage)   |
-+-----------+-----------+
-            |
-            v
-+-----------------------+
-|     PPO Training      |
-|   (Optimization Loop) |
-+-----------+-----------+
-            |
-            v
-+-----------------------+
-| Evaluation & Video    |
-|   (MP4 Generation)    |
-+-----------------------+
+## System Architecture
+
+The following diagram represents the full pipeline used in our Connect-4 PPO Reinforcement Learning system:
+
+![Connect4 PPO System Architecture](Connect4_PPO_System_Architecture_Colored.png)
 
 ---
 
